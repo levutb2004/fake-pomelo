@@ -94,6 +94,7 @@ class POMELO(nn.Module):
         
         if (mask is not None) and (not predict_map):
             mask = mask.to(self.device)
+            inputs = inputs.to(self.device)
             if not self.convnet:
                 inputs = inputs[:,:,mask[0]].unsqueeze(3)
                 mask = mask[mask].unsqueeze(0).unsqueeze(2) 

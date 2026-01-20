@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "TZA superpixel_disagg_model.py",
+            "name": "RWA superpixel_disagg_model.py",
             "type": "python",
             "request": "launch",
             "program": "superpixel_disagg_model.py",
@@ -14,16 +14,20 @@
                 "PYTHONPATH": "${workspaceRoot}",
                 "PYDEVD_WARN_EVALUATION_TIMEOUT": "500"},
             "args": [
-                "-train", "tza",
+                "-train", "rwa",
                 "-train_lvl", "c",
-                "-test", "tza,uga",
-                "-lr", "0.0001",
-                "-optim", "adam",
-                "-wr", "0.001",
-                "-adamwr", "0.",
-                "-lstep", "2000",
+                "-test", "rwa",
+                "-wr", "0.01",
+                "--dropout", "0.4", 
+                "-lstep", "800",
+                "--validation_fold", "0",
+                "-rs", "42",
                 "-mm", "m",
-                "--validation_fold", "0"
+                "--loss", "LogL1",
+                "--dataset_dir", "datasets", 
+                "--sampler", "custom",
+                "--max_step", "2000", 
+                "--name", "rwa_fine_vfold0"
             ]
         }
     ]

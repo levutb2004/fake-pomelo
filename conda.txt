@@ -2,11 +2,32 @@ list env: conda env list
 delete an environment: conda env remove -n <environment_name>
 create a conda evn: conda create -n pomelo python=3.11.9 -y (yes to all prompts)
 install a library: conda install -c conda-forge <library> -y
-
-python F:\pomelo\population_estimation-main\preprocessing_pop_data.py F:/pomelo/population_estimation-main/pomelo_input_data/RWA/rwa_humdata_regions_shapefile/rwa_humdata_regions.shp F:/pomelo/population_estimation-main/pomelo_input_data/RWA/rwa_humdata_regions.tif F:/pomelo/population_estimation-main/pomelo_input_data/RWA/rwa_wpop_regions.tif F:/pomelo/population_estimation-main/pomelo_input_data/RWA/rwa_wpop_census.csv F:/pomelo/population_estimation-main/pomelo_input_data/RWA/preprocessed_census_data_rwa.pkl rwa P_2020
-python F:\pomelo\population_estimation-main\preprocessing_pop_data.py F:/pomelo/population_estimation-main/pomelo_input_data/VNM/vnm_humdata_regions_shapefile/vnm_humdata_regions.shp F:/pomelo/population_estimation-main/pomelo_input_data/VNM/vnm_humdata_regions.tif F:/pomelo/population_estimation-main/pomelo_input_data/VNM/vnm_wpop_regions.tif F:/pomelo/population_estimation-main/pomelo_input_data/VNM/vnm_wpop_census.csv F:/pomelo/population_estimation-main/pomelo_input_data/VNM/preprocessed_census_data_vnm.pkl vnm P_2019
-python superpixel_disagg_model.py -train rwa -train_lvl f -test rwa -wr 0.01 --dropout 0.4 -lstep 800 --validation_fold 0 -rs 42 -mm m --loss LogL1 --dataset_dir datasets --sampler custom --max_step 150000 --name rwa_fine_vfold0
-python superpixel_disagg_model.py -train rwa -train_lvl f -test rwa -wr 0.01 --dropout 0.4 -lstep 800 --validation_fold 1 -rs 42 -mm m --loss LogL1 --dataset_dir datasets --sampler custom --max_step 150000 --name rwa_fine_vfold1
-python superpixel_disagg_model.py -train rwa -train_lvl f -test rwa -wr 0.01 --dropout 0.4 -lstep 800 --validation_fold 2 -rs 42 -mm m --loss LogL1 --dataset_dir datasets --sampler custom --max_step 150000 --name rwa_fine_vfold2
-python superpixel_disagg_model.py -train rwa -train_lvl f -test rwa -wr 0.01 --dropout 0.4 -lstep 800 --validation_fold 3 -rs 42 -mm m --loss LogL1 --dataset_dir datasets --sampler custom --max_step 150000 --name rwa_fine_vfold3
-python superpixel_disagg_model.py -train rwa -train_lvl f -test rwa -wr 0.01 --dropout 0.4 -lstep 800 --validation_fold 4 -rs 42 -mm m --loss LogL1 --dataset_dir datasets --sampler custom --max_step 150000 --name rwa_fine_vfold4
+export environment: conda env export > environment.yml
+python E:/fake-pomelo/preprocessing_pop_data.py 
+E:/fake-pomelo/pomelo_input_data/vnm/vnm_humdata_regions_shapefile/vnm_humdata_regions.shp 
+E:/fake-pomelo/pomelo_input_data/vnm/vnm_humdata_regions.tif 
+E:/fake-pomelo/pomelo_input_data/vnm/vnm_wpop_regions.tif 
+E:/fake-pomelo/pomelo_input_data/vnm/vnm_wpop_census.csv 
+E:/fake-pomelo/pomelo_input_data/vnm/preprocessed_census_data_vnm.pkl 
+vnm 
+P_2019
+python E:/fake-pomelo/preprocessing_pop_data.py E:/fake-pomelo/pomelo_input_data/VNM/vnm_humdata_regions_shapefile/vnm_humdata_regions.shp E:/fake-pomelo/pomelo_input_data/VNM/vnm_humdata_regions.tif E:/fake-pomelo/pomelo_input_data/VNM/vnm_wpop_regions.tif E:/fake-pomelo/pomelo_input_data/VNM/vnm_wpop_census.csv E:/fake-pomelo/pomelo_input_data/VNM/preprocessed_census_data_vnm.pkl vnm P_2019
+python superpixel_disagg_model.py -train vnm -train_lvl c -test vnm -wr 0.01 --dropout 0.4 -lstep 800 --validation_fold 0 -rs 42 -mm m --loss LogL1 --dataset_dir datasets --sampler custom --max_step 50000 --name vnm_fine_vfold0
+python superpixel_disagg_model.py 
+-train vnm 
+-train_lvl f 
+-test vnm 
+-wr 0.01 
+--dropout 0.4 
+-lstep 800 
+--validation_fold 1 
+-rs 42 
+-mm m 
+--loss LogL1 
+--dataset_dir datasets 
+--sampler custom 
+--max_step 150000 
+--name vnm_fine_vfold1
+python superpixel_disagg_model.py -train vnm -train_lvl f -test vnm -wr 0.01 --dropout 0.4 -lstep 800 --validation_fold 2 -rs 42 -mm m --loss LogL1 --dataset_dir datasets --sampler custom --max_step 150000 --name vnm_fine_vfold2
+python superpixel_disagg_model.py -train vnm -train_lvl f -test vnm -wr 0.01 --dropout 0.4 -lstep 800 --validation_fold 3 -rs 42 -mm m --loss LogL1 --dataset_dir datasets --sampler custom --max_step 150000 --name vnm_fine_vfold3
+python superpixel_disagg_model.py -train vnm -train_lvl f -test vnm -wr 0.01 --dropout 0.4 -lstep 800 --validation_fold 4 -rs 42 -mm m --loss LogL1 --dataset_dir datasets --sampler custom --max_step 150000 --name vnm_fine_vfold4
