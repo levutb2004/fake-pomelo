@@ -17,4 +17,5 @@ sHACenv4/
 cy_utils/__pycache__/
 *.pyc
 datasettop5
-
+/pomelo_input_data
+/test.txt
